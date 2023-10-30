@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    background-color: #444;
+    color: #fff;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #0074d9; /* Blue background color */
+    padding: 10px 20px; /* Add padding to make it look better */
+    border-radius: 50px; /* Makes it oval-shaped, 50% of width/height */
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+/* Add more styles as needed */
