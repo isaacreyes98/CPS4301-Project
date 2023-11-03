@@ -1,3 +1,29 @@
+<?php
+session_start();
+
+$servername = "localhost";
+$username = "justin";
+$password = "justin";
+$dbname = "cps4301";
+
+// Create a connection to the database
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check if the connection was successful
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if (isset($_SESSION['username'])) {
+    $dailyLogOption = '<li><a href="DailyLog.php">Daily Log</a></li>';
+    $logoutOption = '<li><a href="logout.php">Logout</a></li>';
+} 
+else {
+    $dailyLogOption = '';
+    $logoutOption = '';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,10 +39,14 @@
     <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="OperationHours.html">Operation Hours</a></li>
-            <li><a href="Download_Request_Form.html">Game Download Request</a></li>
-            <li><a href="">Main Stage Reservation</a></li>
-            <li><a href="FAQ.html">FAQ</a></li>
+            <li><a href="login.php">Login</a></li>
+            <li><a href="availability.php">Computer Availability</a></li>
+            <li><a href="OperationHours.php">Operation Hours</a></li>
+            <li><a href="Download_Request_Form.php">Game Download Request</a></li>
+            <li><a href="#reservation">Main Stage Reservation</a></li>
+            <li><a href="FAQ.php">FAQ</a></li>
+            <?php echo $dailyLogOption; ?>
+            <?php echo $logoutOption; ?>
         </ul>
     </nav>
     <main>
