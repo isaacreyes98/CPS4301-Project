@@ -15,6 +15,15 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+if (isset($_SESSION['username'])) {
+    $dailyLogOption = '<li><a href="DailyLog.php">Daily Log</a></li>';
+    $logoutOption = '<li><a href="logout.php">Logout</a></li>';
+} 
+else {
+    $dailyLogOption = '';
+    $logoutOption = '';
+}
+
 $error_message = "";
 
 // Process the login form
@@ -54,16 +63,23 @@ $conn->close();
 </head>
 <body>
     <header>
-        <h1>Kean University eSports Arena</h1>
+        <h1>Login</h1>
     </header>
     <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
+            <li><a href="availability.php">Computer Availability</a></li>
+            <li><a href="OperationHours.php">Operation Hours</a></li>
+            <li><a href="Download_Request_Form.php">Game Download Request</a></li>
+            <li><a href="#reservation">Main Stage Reservation</a></li>
+            <li><a href="Rules.php">Rules</a></li>
+            <li><a href="FAQ.php">FAQ</a></li>
+            <?php echo $dailyLogOption; ?>
+            <?php echo $logoutOption; ?>
         </ul>
     </nav>
     <main>
         <div id="login-form">
-            <h2>Login</h2>
             <br>
             <form action="login.php" method="post">
                 <label for="username">Username:</label>
@@ -81,3 +97,4 @@ $conn->close();
     </main>
 </body>
 </html>
+
