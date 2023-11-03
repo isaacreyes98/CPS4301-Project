@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Database connection parameters
 $servername = "localhost";
 $username = "justin";
 $password = "justin";
@@ -15,33 +14,32 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$error_message = "";
-
-// Process the login form
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $login = $_POST["username"];
-    $password = $_POST["password"];
-
-    // TODO: Perform a query to verify the user's credentials
-    // Example:
-    $sql = "SELECT * FROM workers WHERE email = '$login' AND password = '$password'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        // Successful login, set a session variable to remember the user
-        $_SESSION['username'] = $login;
-
-        // Redirect to index.html
-        header("Location: index.php");
-        exit();
-    } else {
-        // Invalid credentials, display an error message
-        $error_message = "Invalid username or password.";
-    }
+if (isset($_SESSION['username'])) {
+    $dailyLogOption = '<li><a href="DailyLog.php">Daily Log</a></li>';
+    $logoutOption = '<li><a href="logout.php">Logout</a></li>';
+} 
+else {
+    $dailyLogOption = '';
+    $logoutOption = '';
 }
 
-// Close the database connection
-$conn->close();
+$sql = "SELECT computer_choice, time_exit FROM daily_log";
+$result = $conn->query($sql);
+
+// Create an array to store computer availability
+$computerAvailability = array();
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $computerChoice = $row["computer_choice"];
+        $timeExit = $row["time_exit"];
+
+        // Set availability based on the presence of time_exit
+        $availability = empty($timeExit) ? "Not Available" : "Available";
+
+        $computerAvailability[$computerChoice] = $availability;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -49,21 +47,28 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Kean University eSports Arena</title>
+    <title>Computer Availability - Kean University eSports Arena</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Kean University eSports Arena</h1>
+        <h1>Computer Availability</h1>
     </header>
     <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
+            <li><a href="login.php">Login</a></li>
+            <li><a href="OperationHours.php">Operation Hours</a></li>
+            <li><a href="Download_Request_Form.php">Game Download Request</a></li>
+            <li><a href="#reservation">Main Stage Reservation</a></li>
+            <li><a href="Rules.php">Rules</a></li>
+            <li><a href="FAQ.php">FAQ</a></li>
+            <?php echo $dailyLogOption; ?>
+            <?php echo $logoutOption; ?>
         </ul>
     </nav>
     <main>
         <div id="computer-availability">
-            <h2>Computer Availability</h2>
             <ul>
                 <?php
                 for ($computerNumber = 1; $computerNumber <= 30; $computerNumber++) {
@@ -78,4 +83,3 @@ $conn->close();
     </main>
 </body>
 </html>
-
