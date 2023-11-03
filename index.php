@@ -60,11 +60,11 @@ if ($result->num_rows > 0) {
         <ul>
             <li><a href="login.php">Login</a></li>
             <li><a href="availability.php">Computer Availability</a></li>
-            <li><a href="OperationHours.html">Operation Hours</a></li>
-            <li><a href="Download_Request_Form.html">Game Download Request</a></li>
+            <li><a href="OperationHours.php">Operation Hours</a></li>
+            <li><a href="Download_Request_Form.php">Game Download Request</a></li>
             <li><a href="#reservation">Main Stage Reservation</a></li>
-            <li><a href="Rules.html">Rules</a></li>
-            <li><a href="FAQ.html">FAQ/Support</a></li>
+            <li><a href="Rules.php">Rules</a></li>
+            <li><a href="FAQ.php">FAQ</a></li>
             <?php echo $dailyLogOption; ?>
             <?php echo $logoutOption; ?>
         </ul>
@@ -82,6 +82,9 @@ if ($result->num_rows > 0) {
     </a>
         <a href="https://www.instagram.com/kean_esports" target="_blank">
         <img src="instagram.png" alt="Instagram Logo" class="social-icon" width="90" height="90">
+    </a>
+    <a href="https://www.instagram.com/kean_esports" target="_blank">
+        <img src="DiscordLogo.png" alt="Discord Logo" class="social-icon" width="90" height="90">
     </a>
 </div>
     </main>
