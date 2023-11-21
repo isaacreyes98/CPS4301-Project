@@ -1,0 +1,66 @@
+Developer Documentation: 
+Introduction
+Purpose of the Developer Documentation
+This document will provide you the information needed to understand the project.
+Target Audience
+College students and workers
+Facilitators 
+Getting Started/Project Structure
+Prerequisites for Contributors
+Create GitHub account
+Fork repository before making any changes
+Create feature branch for changes
+Installation Instructions 
+FTP server (e.g. FileZilla)
+Web server (e.g. AMPPS)
+MySQL Workbench
+
+Contribution Workflow
+Coding Standards and Best Practices
+These are the guidelines we are using:
+HTML: https://gist.github.com/ryansechrest/8693303
+CSS: https://cssguidelin.es/
+SQL: https://docs.telemetry.mozilla.org/concepts/sql_style.html
+Testing Guidelines
+Write clear and concise test cases 
+Document results from tests
+Perform performance tests
+Maintain a document with all tests 
+Security 
+
+Feature Development
+Guidelines for Adding New Features
+Verify the feature is knowledgeable 
+Get approval from main team 
+Modifying Existing Functionality
+Only modify existing functionality if you have tested and checked the new functionality you want to add.
+
+Documentation Standards
+Writing Readme Files
+Update existing Readme files if you add a new feature
+Do not delete any text from the Readme file ever
+Documenting Code 
+Provide file name and thoroughly explain what the code does
+Create comments 
+
+Collaboration and Communication
+Team Communication Channels
+Discord 
+Slack
+Microsoft Teams
+Collaboration Tools 
+Microsoft 365
+
+Bug Reporting and Issue Tracking
+Reporting Bugs
+Communicate any bugs to the community or main team
+Managing Issues and Tasks
+Communicate with the main team
+
+CI/CD
+Integration with CI/CD Pipelines 
+GitHub Actions
+Deployment Procedures
+Run unit tests
+Database migrations
+Environment preparations 
