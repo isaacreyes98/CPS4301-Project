@@ -60,6 +60,8 @@ Communicate with the main team
 CI/CD
 Integration with CI/CD Pipelines 
 GitHub Actions
+Composer
+Jekyll
 Deployment Procedures
 Run unit tests
 Database migrations
